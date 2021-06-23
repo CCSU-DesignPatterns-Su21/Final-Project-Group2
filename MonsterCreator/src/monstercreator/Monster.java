@@ -42,7 +42,7 @@ public class Monster implements Product, Visitable{
     }
     @Override
     public String toString(){
-        String str = "[Monster: " + name 
+        String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints
                 + "\nHead: " + head.toString() 
                 + "\nForelimb: " + forelimb.toString() 
