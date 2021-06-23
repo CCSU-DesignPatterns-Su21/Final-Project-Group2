@@ -6,20 +6,31 @@ package monstercreator;
  */
 public abstract class MonsterPart implements Visitable {
     
-    private int maxHitPoints, currentHitPoints;
+    private final int maxHitPoints = 2000;
+    private int currentHitPoints;
     private Monster parent;
     private Element element;
     
-    public int getMaxHP(){
+    
+    public final int getMaxHP(){
         return maxHitPoints;
     }
-    public int getCurrentHP(){
+    public final void setCurrentHP(int value){
+        currentHitPoints = value;
+    }
+    public final int getCurrentHP(){
         return currentHitPoints;
     }
-    public Element getElement(){
+    public final void setElement(Element type){
+        element = type;
+    }
+    public final Element getElement(){
         return element;
     }
-    public Monster getParent(){
+    public final void setParent(Monster mon){
+        parent = mon;
+    }
+    public final Monster getParent(){
         return parent;
     }
     

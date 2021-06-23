@@ -7,7 +7,8 @@ package monstercreator;
 public class Monster implements Product, Visitable{
     
     private String name;
-    private int maxHitPoints, currentHitPoints;
+    private final int maxHitPoints = 10000;
+    private int currentHitPoints;
     private Head head;
     private Tail tail;
     private Limb forelimb;
@@ -20,26 +21,31 @@ public class Monster implements Product, Visitable{
         return currentHitPoints;
     }
     
-    public Monster(String n,int HP, Head h, Tail t, Limb f, Limb r ){
+    public Monster(String n, Head h, Limb f, Limb r, Tail t ){
         name = n;
-        currentHitPoints = maxHitPoints = HP;
-        head = h;
-        tail = t;
+        currentHitPoints = maxHitPoints;
+        head = h;        
         forelimb = f;
-        hindLimb = r;        
+        hindLimb = r;    
+        tail = t;    
     }
     @Override
     public void accept(Visitor v){
-        
+        v.visitMonster(this);
+        // send visitor to other parts
+        head.accept(v);
+        forelimb.accept(v);
+        hindLimb.accept(v);
+        tail.accept(v);
     }
     @Override
     public String toString(){
         String str = "[Monster: " + name 
-                + " HP: " + currentHitPoints + "/" + maxHitPoints
-                + " Head: " + head.toString() 
-                +  "Forelimb: " + forelimb.toString() 
-                + " Hind Limb: " + hindLimb.toString()
-                + " Tail: " + tail.toString() + '\n';
+                + "\nHP: " + currentHitPoints + "/" + maxHitPoints
+                + "\nHead: " + head.toString() 
+                + "\nForelimb: " + forelimb.toString() 
+                + "\nHind Limb: " + hindLimb.toString()
+                + "\nTail: " + tail.toString() + '\n';
         return str;
     }
 }
