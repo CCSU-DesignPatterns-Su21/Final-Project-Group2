@@ -27,8 +27,8 @@ public abstract class MonsterPart implements Visitable {
     public final Element getElement(){
         return element;
     }
-    public final void setParent(Monster mon){
-        parent = mon;
+    public final void setParent(Monster monster){
+        parent = monster;
     }
     public final Monster getParent(){
         return parent;

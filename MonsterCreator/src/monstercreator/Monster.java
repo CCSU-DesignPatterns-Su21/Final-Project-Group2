@@ -27,7 +27,9 @@ public class Monster implements Product, Visitable{
         head = h;        
         forelimb = f;
         hindLimb = r;    
-        tail = t;    
+        tail = t;
+        // create bidirectional relationship
+        setParent();
     }
     @Override
     public void accept(Visitor v){
@@ -47,5 +49,12 @@ public class Monster implements Product, Visitable{
                 + "\nHind Limb: " + hindLimb.toString()
                 + "\nTail: " + tail.toString() + '\n';
         return str;
+    }
+
+    private void setParent(){
+        head.setParent(this);
+        forelimb.setParent(this);
+        hindLimb.setParent(this);
+        tail.setParent(this);
     }
 }
