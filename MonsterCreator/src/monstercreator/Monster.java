@@ -4,7 +4,7 @@ package monstercreator;
  *
  * @author zachb
  */
-public class Monster implements Visitable{
+public class Monster implements Product, Visitable{
     
     private String name;
     private int maxHitPoints, currentHitPoints;
