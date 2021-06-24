@@ -107,5 +107,9 @@ public class MonsterFactory implements Factory{
         MonsterFactory mf = MonsterFactory.getInstance();
         Monster test = mf.create();
         System.out.println(test);
+
+        Visitor v = new Visitor();
+        test.accept(v);
+        System.out.println(v.toString());
     }
 }

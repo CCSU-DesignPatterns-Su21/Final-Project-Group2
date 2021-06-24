@@ -20,8 +20,11 @@ public class Monster implements Product, Visitable{
     public int getMaxHP(){
         return maxHitPoints;
     }
-    public int getCurrentHP(){
+    public int getCurrentHP() {
         return currentHitPoints;
+    }
+    public String getName() {
+        return name;
     }
     
     /**
@@ -58,7 +61,7 @@ public class Monster implements Product, Visitable{
         hindLimb.accept(v);
         tail.accept(v);
     }
-    @Override
+/*     @Override
     public String toString(){
         String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints
@@ -67,7 +70,7 @@ public class Monster implements Product, Visitable{
                 + "\nHind Limb: " + hindLimb.toString()
                 + "\nTail: " + tail.toString() + '\n';
         return str;
-    }
+    } */
 
     /**
      * Sets this Monster as the parent
