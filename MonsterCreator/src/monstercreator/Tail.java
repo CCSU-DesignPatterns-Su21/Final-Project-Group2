@@ -1,7 +1,8 @@
 package monstercreator;
 
 /**
- *
+ * Each Monster must have
+ * exactly one Tail
  * @author zachb
  */
 public class Tail extends MonsterPart {

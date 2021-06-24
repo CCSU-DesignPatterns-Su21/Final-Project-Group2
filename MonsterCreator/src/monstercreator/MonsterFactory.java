@@ -4,8 +4,12 @@ import java.util.Scanner;
 import static monstercreator.Element.*;
 
 /**
- *
- * @author zachb
+ *  A Factory class that produces 
+ * Monsters. Implements AbstractFactory
+ * and Singleton design patterns.
+ * @author  Zach Bearse
+ *          Adam Hasen
+ *          Jeremiah Smith
  */
 public class MonsterFactory implements Factory{
     
@@ -26,9 +30,9 @@ public class MonsterFactory implements Factory{
     }
     
     /**
-     *
-     * 
-     * @return
+     * Creates a Monster with traits
+     * based on user input.     * 
+     * @return a unique Monster instance
      */
     @Override
     public Monster create(){

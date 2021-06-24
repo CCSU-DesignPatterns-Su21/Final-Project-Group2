@@ -1,7 +1,8 @@
 package monstercreator;
 
 /**
- *
+ * MonsterPart.
+ * Concrete Limb
  * @author zachb
  */
 public class Arm extends Limb{

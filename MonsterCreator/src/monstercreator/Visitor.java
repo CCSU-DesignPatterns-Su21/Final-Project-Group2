@@ -1,7 +1,7 @@
 package monstercreator;
 
 /**
- *
+ * Implements Visitor pattern
  * @author zachb
  */
 public class Visitor {

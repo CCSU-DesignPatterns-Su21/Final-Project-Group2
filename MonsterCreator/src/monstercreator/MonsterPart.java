@@ -1,7 +1,9 @@
 package monstercreator;
 
 /**
- *
+ * Abstract class that contains all
+ * common attributes and behaviors
+ * of the concrete MonsterParts
  * @author zachb
  */
 public abstract class MonsterPart implements Visitable {
