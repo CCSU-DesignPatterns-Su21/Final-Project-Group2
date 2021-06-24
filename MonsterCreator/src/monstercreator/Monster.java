@@ -61,16 +61,17 @@ public class Monster implements Product, Visitable{
         hindLimb.accept(v);
         tail.accept(v);
     }
-/*     @Override
+     @Override
     public String toString(){
         String str = "Monster: " + name 
-                + "\nHP: " + currentHitPoints + "/" + maxHitPoints
-                + "\nHead: " + head.toString() 
+                + "\nHP: " + currentHitPoints + "/" + maxHitPoints + "\n";
+                /*+ "\nHead: " + head.toString() 
                 + "\nForelimb: " + forelimb.toString() 
                 + "\nHind Limb: " + hindLimb.toString()
                 + "\nTail: " + tail.toString() + '\n';
+                */
         return str;
-    } */
+    }
 
     /**
      * Sets this Monster as the parent

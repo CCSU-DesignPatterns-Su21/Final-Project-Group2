@@ -31,7 +31,7 @@ public class MonsterFactory implements Factory{
     
     /**
      * Creates a Monster with traits
-     * based on user input.     * 
+     * based on user input. 
      * @return a unique Monster instance
      */
     @Override

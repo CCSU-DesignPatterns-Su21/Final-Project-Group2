@@ -14,7 +14,7 @@ public class Head extends MonsterPart {
     }
 
     /**
-     *
+     * 
      * @param v
      */
     @Override
@@ -22,4 +22,9 @@ public class Head extends MonsterPart {
         v.visitHead(this);
     }
     
+    public String toString(){
+        String str = "Head:[" + getElement()
+                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        return str;
+    }
 }

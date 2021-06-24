@@ -5,46 +5,33 @@ package monstercreator;
  * @author zachb
  */
 public class Visitor {
-    private String name = "";
-    private int currentHitPoints = 0;
-    private int maxHitPoints = 0;
-    private int head = 0;
-    private int foreLimb = 0;
-    private int hindLimb = 0;
-    private int tail = 0;
+    private String monsterSummary = "";
 
+    @Override
     public String toString() {
-        String outputString = "Monster: " + name;
-        outputString += "\nHP: " + currentHitPoints + "/" + maxHitPoints;
-        outputString+= "\nHead: " + head;
-        outputString+="\nFore Limb: " + foreLimb;
-        outputString+= "\nHind Limb: " + hindLimb;
-        outputString+= "\nTail: " + tail + '\n';
-        return outputString;
+        return monsterSummary;
     }
     
     public void visitMonster(Monster mon) {
-        name = mon.getName();
-        currentHitPoints = mon.getCurrentHP();
-        maxHitPoints = mon.getMaxHP();
+        monsterSummary += mon.toString();
     }
     public void visitHead(Head head){
-        this.head = head.getCurrentHP();
+        monsterSummary += head.toString();
     }
     public void visitTail(Tail tail){
-        this.tail = tail.getCurrentHP();
+        monsterSummary += tail.toString();
     }
     public void visitArm(Arm arm){
-        foreLimb = arm.getCurrentHP();
+        monsterSummary += arm.toString();
     }
     public void visitLeg(Leg leg){
-        hindLimb = leg.getCurrentHP();
+        monsterSummary += leg.toString();
     }
     public void visitWing(Wing wing){
-        
+        monsterSummary += wing.toString();
     }
     public void visitFin(Fin fin){
-        
+        monsterSummary += fin.toString();
     }
-    
+   
 }

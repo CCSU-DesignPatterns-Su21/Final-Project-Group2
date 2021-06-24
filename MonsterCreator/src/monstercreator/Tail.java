@@ -14,4 +14,9 @@ public class Tail extends MonsterPart {
         v.visitTail(this);
     }
     
+    public String toString(){
+        String str = "Tail: [" + getElement()
+                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        return str;
+    }
 }

@@ -10,6 +10,7 @@ public class Fin extends Limb{
         setCurrentHP(getMaxHP());
         setElement(type);
     }
+    
     public void accept(Visitor v){
         v.visitFin(this);
     }
