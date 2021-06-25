@@ -3,19 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/GoodState.java</file>
+            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/BrokenState.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/MonsterFactory.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Fin.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Monster.java</file>
-            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Element.java</file>
+            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/IMonster.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Limb.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Leg.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Head.java</file>
-            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Visitable.java</file>
+            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/PartState.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/MonsterPart.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Wing.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Tail.java</file>
+            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Factory.java</file>
             <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Arm.java</file>
-            <file>file:/D:/Documents/Classes/Design%20Patterns/final_project_group2/MonsterCreator/src/monstercreator/Visitor.java</file>
         </group>
     </open-files>
 </project-private>
