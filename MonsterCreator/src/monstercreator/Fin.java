@@ -7,8 +7,7 @@ package monstercreator;
  */
 public class Fin extends Limb{
     public Fin(Element type){
-        setCurrentHP(getMaxHP());
-        setElement(type);
+        super(type);
     }
     
     public void accept(Visitor v){

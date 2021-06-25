@@ -7,8 +7,7 @@ package monstercreator;
  */
 public class Leg extends Limb {
     public Leg(Element type){
-        setCurrentHP(getMaxHP());
-        setElement(type);
+        super(type);
     }
     public void accept(Visitor v){
         v.visitLeg(this);

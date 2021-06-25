@@ -7,7 +7,7 @@ package monstercreator;
  * one Head, one Tail, and two Limbs
  * @author zachb
  */
-public class Monster implements Product, Visitable{
+public class Monster implements IMonster, Visitable{
     
     private String name;
     private final int maxHitPoints = 10000; // Default value

@@ -7,8 +7,7 @@ package monstercreator;
  */
 public class Tail extends MonsterPart {
     public Tail(Element type){
-        setCurrentHP(getMaxHP());
-        setElement(type);
+        super(type);
     }
     public void accept(Visitor v){
         v.visitTail(this);

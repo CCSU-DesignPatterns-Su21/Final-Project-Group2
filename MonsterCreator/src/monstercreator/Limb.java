@@ -7,5 +7,7 @@ package monstercreator;
  * @author zachb
  */
 public abstract class Limb extends MonsterPart {
-    
+    public Limb(Element type){
+        super(type);
+    }
 }

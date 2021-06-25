@@ -36,4 +36,9 @@ public abstract class MonsterPart implements Visitable {
         return parent;
     }
     
+    public MonsterPart(Element type){
+        setCurrentHP(getMaxHP());
+        element = type;
+    }
+    
 }

@@ -9,8 +9,7 @@ package monstercreator;
 public class Head extends MonsterPart {
     
     public Head(Element type){
-        setElement(type);
-        setCurrentHP(getMaxHP());
+        super(type);
     }
 
     /**
