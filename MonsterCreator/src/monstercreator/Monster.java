@@ -87,4 +87,8 @@ public class Monster implements IMonster, Visitable{
         hindLimb.setParent(this);
         tail.setParent(this);
     }
+    
+    public class MonsterBuilder{
+        //TODO
+    }
 }
