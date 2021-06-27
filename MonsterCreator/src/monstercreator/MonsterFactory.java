@@ -1,7 +1,6 @@
 package monstercreator;
 
 import java.util.Scanner;
-import static monstercreator.Element.*;
 
 /**
  *  A Factory class that produces 
@@ -46,20 +45,20 @@ public class MonsterFactory implements Factory{
                 + "4: Ice\n");
         
         int selection = keyboard.nextInt();
-        Element type = null;
+        IElement type = null;
         
         switch (selection) {
             case 1:
-                type = FIRE;
+                type = Fire.getInstance();
                 break;
             case 2:
-                type = WATER;
+                type = Water.getInstance();
                 break;
             case 3:
-                type = ELECTRIC;
+                type = Electric.getInstance();
                 break;
             case 4:
-                type = ICE;
+                type = Ice.getInstance();
                 break;
             default:
                 throw new RuntimeException("Invalid Input");

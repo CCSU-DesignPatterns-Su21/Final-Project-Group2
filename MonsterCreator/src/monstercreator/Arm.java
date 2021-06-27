@@ -7,12 +7,18 @@ package monstercreator;
  */
 public class Arm extends Limb{
     
-    public Arm(Element type){
+    public Arm(IElement type){
         super(type);
     }
+
+    /**
+     * For participation in Visitor pattern
+     * @param v accepted Visitor
+     */
     public void accept(Visitor v){
         v.visitArm(this);
     }
+    @Override
     public String toString(){
         String str = "Arm: [" + getElement()
                 + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";

@@ -6,13 +6,20 @@ package monstercreator;
  * @author zachb
  */
 public class Wing extends Limb {
-    public Wing(Element type){
+    public Wing(IElement type){
         super(type);
     }
+
+    /**
+     * For participation in Visitor pattern
+     * @param v accepted Visitor
+     */
+    @Override
     public void accept(Visitor v){
         v.visitWing(this);
     }
-public String toString(){
+    @Override
+    public String toString(){
         String str = "Wing: [" + getElement()
                 + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";
         return str;

@@ -6,9 +6,15 @@ package monstercreator;
  * @author zachb
  */
 public class Leg extends Limb {
-    public Leg(Element type){
+    public Leg(IElement type){
         super(type);
     }
+
+    /**
+     * For participation in Visitor pattern
+     * @param v accepted Visitor
+     */
+    @Override
     public void accept(Visitor v){
         v.visitLeg(this);
     }

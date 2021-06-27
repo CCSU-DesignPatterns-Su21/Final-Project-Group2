@@ -45,6 +45,10 @@ public class Monster implements IMonster, Visitable{
         // create bidirectional relationship
         setParent();
     }
+    
+    public void takeDamage(int damage){
+        currentHitPoints -= damage;
+    }
 
     /**
      * Visitor pattern

@@ -8,7 +8,7 @@ package monstercreator;
  */
 public class Head extends MonsterPart {
     
-    public Head(Element type){
+    public Head(IElement type){
         super(type);
     }
 
