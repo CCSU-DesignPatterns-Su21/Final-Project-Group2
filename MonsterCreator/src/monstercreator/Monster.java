@@ -1,5 +1,7 @@
 package monstercreator;
 
+import java.util.ArrayList;
+
 /**
  * The Product created by the
  * MonsterFactory. Composed of 
@@ -14,8 +16,7 @@ public class Monster implements IMonster, Visitable{
     private int currentHitPoints;
     private Head head;
     private Tail tail;
-    private Limb forelimb;
-    private Limb hindLimb;
+    private ArrayList<Limb> limbs;
     
     public int getMaxHP(){
         return maxHitPoints;
@@ -31,17 +32,17 @@ public class Monster implements IMonster, Visitable{
      * Constructor for Monster
      * @param n String - Monster's name
      * @param h Head - head
-     * @param f Limb - forelimb
-     * @param r Limb - hindLimb1
+     * @param limbList ArrayList of Limbs
      * @param t Tail - tail
      */
-    public Monster(String n, Head h, Limb f, Limb r, Tail t ){
+    public Monster(String n, Head h, ArrayList<Limb> limbList, Tail t ){
         name = n;
         currentHitPoints = maxHitPoints;
-        head = h;        
-        forelimb = f;
-        hindLimb = r;    
+        head = h;          
         tail = t;
+        for(Limb l : limbList){
+            limbs.add(l);
+        }
         // create bidirectional relationship
         setParent();
     }
@@ -61,8 +62,9 @@ public class Monster implements IMonster, Visitable{
         v.visitMonster(this);
         // send visitor to other parts
         head.accept(v);
-        forelimb.accept(v);
-        hindLimb.accept(v);
+        for(Limb l : limbs){
+            l.accept(v);
+        }
         tail.accept(v);
     }
      @Override
@@ -83,9 +85,10 @@ public class Monster implements IMonster, Visitable{
      */
     private void setParent(){
         head.setParent(this);
-        forelimb.setParent(this);
-        hindLimb.setParent(this);
         tail.setParent(this);
+        for(Limb l : limbs){
+            l.setParent(this);
+        }
     }
     
     public class MonsterBuilder{

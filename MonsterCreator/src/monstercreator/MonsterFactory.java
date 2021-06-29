@@ -1,5 +1,6 @@
 package monstercreator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -74,28 +75,31 @@ public class MonsterFactory implements Factory{
             case 1:
             {
                 Head head = new Head(type);
-                Arm arms = new Arm(type);
-                Leg legs = new Leg(type);
+                ArrayList<Limb> limbs = new ArrayList();
+                limbs.add(new Arm(type));
+                limbs.add(new Leg(type));
                 Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, arms, legs, tail);
+                Monster monster = new Monster(name, head, limbs, tail);
                 return monster;
             }
             case 2:
             {
                 Head head = new Head(type);
-                Leg frontLegs = new Leg(type);
-                Leg backLegs = new Leg(type);
+                ArrayList<Limb> limbs = new ArrayList();
+                limbs.add(new Leg(type));
+                limbs.add(new Leg(type));
                 Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, frontLegs, backLegs, tail);
+                Monster monster = new Monster(name, head, limbs, tail);
                 return monster;
             }
             case 3:
             {
                 Head head = new Head(type);
-                Wing wings = new Wing(type);
-                Leg legs = new Leg(type);
+                ArrayList<Limb> limbs = new ArrayList();
+                limbs.add(new Wing(type));
+                limbs.add(new Leg(type));
                 Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, wings, legs, tail);
+                Monster monster = new Monster(name, head, limbs, tail);
                 return monster;
             }
             default:
