@@ -38,15 +38,14 @@ public class MonsterFactory implements Factory{
         // prompt user for input
         System.out.println("Name your Monster:");
         String name = keyboard.nextLine();
+
         System.out.println("Choose an Element: \n"
                 + "1: Fire\n"
                 + "2: Water\n"
                 + "3: Electric\n"
                 + "4: Ice\n");
-        
         int selection = keyboard.nextInt();
         IElement type = null;
-        
         switch (selection) {
             case 1:
                 type = Fire.getInstance();
@@ -67,41 +66,28 @@ public class MonsterFactory implements Factory{
         System.out.println("Choose a Body Type: \n"
                 + "1: Bipedal Terrestrial\n"
                 + "2: Quadrupedal Terrestrial\n"
-                + "3: Flying\n");
-        int bodyType = keyboard.nextInt();
-        
+                + "3: Oceanic\n"
+                + "4: Wyvern\n"
+                + "5: Elder Dragon\n");
+        int bodyType = keyboard.nextInt();       
         switch (bodyType) {
             case 1:
             {
-                Head head = new Head(type);
-                Arm arms = new Arm(type);
-                Leg legs = new Leg(type);
-                Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, arms, legs, tail);
-                return monster;
+                //TODO: use the BuildDirector to create each preset monster, should return a monster at the end
             }
             case 2:
             {
-                Head head = new Head(type);
-                Leg frontLegs = new Leg(type);
-                Leg backLegs = new Leg(type);
-                Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, frontLegs, backLegs, tail);
-                return monster;
+                
             }
             case 3:
             {
-                Head head = new Head(type);
-                Wing wings = new Wing(type);
-                Leg legs = new Leg(type);
-                Tail tail = new Tail(type);
-                Monster monster = new Monster(name, head, wings, legs, tail);
-                return monster;
+                
             }
             default:
                 throw new RuntimeException("Invalid Input");
         }
     }
+
     public static void main(String[] args){
         Factory mf = MonsterFactory.getInstance();
         IMonster test = mf.create();

@@ -2,25 +2,26 @@ package monstercreator;
 
 /**
  *
- * @author zachb
+ * @author zachb, Jeremiah Smith
  */
-public class BuildDirector {
-    
+public class BuildDirector {   
     public static void buildBipedMonster(Monster.MonsterBuilder builder, IElement type){
-        // add head, arms, legs, tail, element
+        // head, tail, 2 arms, 2 legs, element
     }
+
     public static void buildQuadrupedMonster(Monster.MonsterBuilder builder, IElement type){
-        // add head, legs, legs, tail, element
+        // head, tail, 2 arms, 4 legs, element
     }
+
+    public static void buildOceanMonster(Monster.MonsterBuilder builder, IElement type) {
+        // head, tail, 2 arms, 2 legs, 2 fins, element
+    }
+
     public static void buildWyvern(Monster.MonsterBuilder builder, IElement type){
-        // add head, wings, legs, tail, element
+        // head, tail, 2 arms, 2 legs, 2 wings, element
     }
+
     public static void buildElderDragon(Monster.MonsterBuilder builder, IElement type){
-        // add head, wings, legs, legs, tail, element
-        /*
-            **TODO**
-            rework Monster to have a List of Limbs
-            to support an abstract number of Limbs 
-        */
+        // head, tail, 2 arms, 4 legs, 2 wings, element
     }
 }

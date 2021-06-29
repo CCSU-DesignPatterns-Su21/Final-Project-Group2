@@ -1,11 +1,13 @@
 package monstercreator;
 
+import java.util.List;
+
 /**
  * The Product created by the
  * MonsterFactory. Composed of 
  * several MonsterParts, specifically 
  * one Head, one Tail, and two Limbs
- * @author zachb
+ * @author zachb, Jeremiah Smith
  */
 public class Monster implements IMonster, Visitable{
     
@@ -14,34 +16,35 @@ public class Monster implements IMonster, Visitable{
     private int currentHitPoints;
     private Head head;
     private Tail tail;
-    private Limb forelimb;
-    private Limb hindLimb;
+    private List<Arm> arms;
+    private List<Leg> legs;
+    private List<Fin> fins;
+    private List<Wing> wings;
     
     public int getMaxHP(){
         return maxHitPoints;
     }
+
     public int getCurrentHP() {
         return currentHitPoints;
     }
+
     public String getName() {
         return name;
     }
+
+    //TODO: refactoring Monster class for Builder functionality, may want to apply type to the monster instead of monster part
     
     /**
      * Constructor for Monster
      * @param n String - Monster's name
      * @param h Head - head
-     * @param f Limb - forelimb
-     * @param r Limb - hindLimb1
      * @param t Tail - tail
      */
-    public Monster(String n, Head h, Limb f, Limb r, Tail t ){
-        name = n;
+    public Monster(String name, MonsterBuilder builder){
+        this.name = name;
         currentHitPoints = maxHitPoints;
-        head = h;        
-        forelimb = f;
-        hindLimb = r;    
-        tail = t;
+        arms = builder.buildArms();
         // create bidirectional relationship
         setParent();
     }
@@ -65,7 +68,8 @@ public class Monster implements IMonster, Visitable{
         hindLimb.accept(v);
         tail.accept(v);
     }
-     @Override
+
+    @Override
     public String toString(){
         String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints + "\n";
@@ -89,6 +93,8 @@ public class Monster implements IMonster, Visitable{
     }
     
     public class MonsterBuilder{
-        //TODO
+        public Monster build(String monsterName) {
+            return new Monster(monsterName, this);
+        }
     }
 }
