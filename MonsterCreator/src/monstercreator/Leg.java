@@ -6,9 +6,7 @@ package monstercreator;
  * @author zachb
  */
 public class Leg extends Limb {
-    public Leg(IElement type){
-        super(type);
-    }
+    public Leg(){}
 
     /**
      * For participation in Visitor pattern
@@ -19,8 +17,7 @@ public class Leg extends Limb {
         v.visitLeg(this);
     }
     public String toString(){
-        String str = "Leg: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";
+        String str = "Leg: [HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
         return str;
     }
 }

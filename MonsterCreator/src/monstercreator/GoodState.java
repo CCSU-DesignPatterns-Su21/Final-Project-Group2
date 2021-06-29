@@ -3,24 +3,28 @@ package monstercreator;
 /**
  * a MonsterPart's default State
  * @author zachb
+ *         Jeremiah Smith
  */
 public class GoodState implements PartState {
 
     /**
      * This method is called to perform a MonsterPart's attack
      * dealing damage to a targeted MonsterPart
-     * @param attacker The Part performing the attack
-     * @param target The Part taking damage
+     * @param attacker The Monster attacking
+     * @param target The Monster being attacked
+     * @param attackingLimb The Part attacking
+     * @param targetLimb The Part being attacked
      */
     @Override
-    public void attack(MonsterPart attacker, MonsterPart target) {
-        int damage = attacker.getAttackStr();
+    public void attack(Monster attacker, Monster target, MonsterPart attackingLimb, MonsterPart targetLimb) {
+        int damage = attackingLimb.getAttackStr();
         
         if(attacker.getElement() == target.getWeakness()){
             // Element advantage doubles damage
             damage *= 2;
         }
-         target.takeDamage(damage);
+
+        targetLimb.takeDamage(damage);
     }
 
     /**

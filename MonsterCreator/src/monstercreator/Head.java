@@ -8,9 +8,7 @@ package monstercreator;
  */
 public class Head extends MonsterPart {
     
-    public Head(IElement type){
-        super(type);
-    }
+    public Head(){}
 
     /**
      * 
@@ -22,8 +20,7 @@ public class Head extends MonsterPart {
     }
     
     public String toString(){
-        String str = "Head:[" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        String str = "Head: [HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
         return str;
     }
 }

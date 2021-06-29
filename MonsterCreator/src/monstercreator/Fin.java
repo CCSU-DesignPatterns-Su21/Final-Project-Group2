@@ -6,9 +6,7 @@ package monstercreator;
  * @author zachb
  */
 public class Fin extends Limb{
-    public Fin(IElement type){
-        super(type);
-    }
+    public Fin(){}
     
     /**
      * For participation in Visitor pattern

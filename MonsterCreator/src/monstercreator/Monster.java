@@ -7,13 +7,16 @@ import java.util.List;
  * MonsterFactory. Composed of 
  * several MonsterParts, specifically 
  * one Head, one Tail, and two Limbs
- * @author zachb, Jeremiah Smith
+ * @author zachb
+ *         Jeremiah Smith
  */
-public class Monster implements IMonster, Visitable{
+public class Monster implements IMonster, IElement, Visitable{
     
     private String name;
     private final int maxHitPoints = 10000; // Default value
     private int currentHitPoints;
+    private IElement element;
+    private IElement weakness;
     private Head head;
     private Tail tail;
     private List<Arm> arms;
@@ -33,7 +36,19 @@ public class Monster implements IMonster, Visitable{
         return name;
     }
 
-    //TODO: refactoring Monster class for Builder functionality, may want to apply type to the monster instead of monster part
+    final void setElement(IElement type){
+        element = type;
+    }
+
+    public final IElement getElement(){
+        return element;
+    }
+
+    public IElement getWeakness(){
+        return weakness;
+    }
+
+    //TODO: refactoring Monster class for Builder functionality, applying Element type to Monster instead of MonsterPart
     
     /**
      * Constructor for Monster
@@ -44,7 +59,6 @@ public class Monster implements IMonster, Visitable{
     public Monster(String name, MonsterBuilder builder){
         this.name = name;
         currentHitPoints = maxHitPoints;
-        arms = builder.buildArms();
         // create bidirectional relationship
         setParent();
     }
@@ -64,9 +78,19 @@ public class Monster implements IMonster, Visitable{
         v.visitMonster(this);
         // send visitor to other parts
         head.accept(v);
-        forelimb.accept(v);
-        hindLimb.accept(v);
         tail.accept(v);
+        for (Limb limb : arms) {
+            limb.accept(v);
+        }
+        for (Limb limb : legs) {
+            limb.accept(v);
+        }
+        for (Limb limb : fins) {
+            limb.accept(v);
+        }
+        for (Limb limb : wings) {
+            limb.accept(v);
+        }
     }
 
     @Override
@@ -87,14 +111,48 @@ public class Monster implements IMonster, Visitable{
      */
     private void setParent(){
         head.setParent(this);
-        forelimb.setParent(this);
-        hindLimb.setParent(this);
         tail.setParent(this);
+        for (Limb limb : arms) {
+            limb.setParent(this);
+        }
+        for (Limb limb : legs) {
+            limb.setParent(this);
+        }
+        for (Limb limb : fins) {
+            limb.setParent(this);
+        }
+        for (Limb limb : wings) {
+            limb.setParent(this);
+        }
     }
     
     public class MonsterBuilder{
         public Monster build(String monsterName) {
             return new Monster(monsterName, this);
+        }
+
+        private void buildHead() {
+            head = new Head(); //no longer have to worry about getting type to the Builder 
+        }
+
+        private void buildTail() {
+
+        }
+
+        private void buildArms() {
+
+        }
+
+        private void buildLegs() {
+
+        }
+
+        private void buildFins() {
+
+        }
+
+        private void buildWings() {
+
         }
     }
 }

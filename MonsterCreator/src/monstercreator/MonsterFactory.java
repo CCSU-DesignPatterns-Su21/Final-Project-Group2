@@ -83,6 +83,14 @@ public class MonsterFactory implements Factory{
             {
                 
             }
+            case 4:
+            {
+
+            }
+            case 5:
+            {
+                
+            }
             default:
                 throw new RuntimeException("Invalid Input");
         }

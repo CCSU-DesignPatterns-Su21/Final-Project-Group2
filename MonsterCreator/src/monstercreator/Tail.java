@@ -6,9 +6,7 @@ package monstercreator;
  * @author zachb
  */
 public class Tail extends MonsterPart {
-    public Tail(IElement type){
-        super(type);
-    }
+    public Tail(){}
 
     /**
      * For participation in Visitor pattern
@@ -21,8 +19,7 @@ public class Tail extends MonsterPart {
     
     @Override
     public String toString(){
-        String str = "Tail: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        String str = "Tail: [HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
         return str;
     }
 }
