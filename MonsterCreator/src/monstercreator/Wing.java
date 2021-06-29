@@ -20,8 +20,7 @@ public class Wing extends Limb {
     }
     @Override
     public String toString(){
-        String str = "Wing: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";
+        String str = "Wings: [" + super.toString() + "]\n";
         return str;
     }
 }

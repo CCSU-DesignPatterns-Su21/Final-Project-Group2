@@ -67,4 +67,9 @@ public abstract class MonsterPart implements Visitable {
         weakness = type.getWeakness();
     }
     
+    public String toString(){
+        String str = "Element: " + element + "HP: " + currentHitPoints + "/" + maxHitPoints;
+        return str;
+    }
+    
 }

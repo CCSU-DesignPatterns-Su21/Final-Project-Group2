@@ -27,6 +27,6 @@ public class Electric implements IElement{
     }
     
     public String toString(){
-        return "Electric";
+        return "ELECTRIC ";
     }
 }

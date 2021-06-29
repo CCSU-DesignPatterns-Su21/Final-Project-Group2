@@ -27,6 +27,6 @@ public class Fire implements IElement{
     }
     
     public String toString(){
-        return "FIRE";
+        return "FIRE ";
     }
 }

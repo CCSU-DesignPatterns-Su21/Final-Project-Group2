@@ -19,8 +19,7 @@ public class Leg extends Limb {
         v.visitLeg(this);
     }
     public String toString(){
-        String str = "Leg: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";
+        String str = "Legs: [" + super.toString() + "]\n";
         return str;
     }
 }

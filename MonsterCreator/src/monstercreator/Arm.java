@@ -20,8 +20,7 @@ public class Arm extends Limb{
     }
     @Override
     public String toString(){
-        String str = "Arm: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP() + "]\n";
+        String str = "Arms: [" + super.toString() + "]\n";
         return str;
     }
 }

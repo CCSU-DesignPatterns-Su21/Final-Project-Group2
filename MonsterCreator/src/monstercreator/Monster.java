@@ -16,7 +16,7 @@ public class Monster implements IMonster, Visitable{
     private int currentHitPoints;
     private Head head;
     private Tail tail;
-    private ArrayList<Limb> limbs;
+    private ArrayList<Limb> limbs = new ArrayList();
     
     public int getMaxHP(){
         return maxHitPoints;
@@ -71,11 +71,6 @@ public class Monster implements IMonster, Visitable{
     public String toString(){
         String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints + "\n";
-                /*+ "\nHead: " + head.toString() 
-                + "\nForelimb: " + forelimb.toString() 
-                + "\nHind Limb: " + hindLimb.toString()
-                + "\nTail: " + tail.toString() + '\n';
-                */
         return str;
     }
 
@@ -92,6 +87,68 @@ public class Monster implements IMonster, Visitable{
     }
     
     public class MonsterBuilder{
-        //TODO
+        
+        private String name;
+        private Head head;
+        private Tail tail;
+        private ArrayList<Limb> limbs = new ArrayList();
+        
+        public void buildName(String n){
+            name = n;
+        }
+        
+        public void buildHead(IElement type){
+            head = new Head(type);
+        }
+        
+        public void buildTail(IElement type){
+            tail = new Tail(type);
+        }
+        
+        public void buildArms(IElement type){
+            limbs.add(new Arm(type));
+        }
+        
+        public void buildLegs(IElement type){
+            limbs.add(new Leg(type));
+        }
+        
+        public void buildWings(IElement type){
+            limbs.add(new Wing(type));
+        }
+        
+        public void buildFins(IElement type){
+            limbs.add(new Fin(type));
+        }
+        
+        public Monster buildMonster(){
+            return new Monster(name, head, limbs, tail);
+        }
+        
+       
+        /*
+            MonsterBuilder is only used by BuildManager,
+            so incomplete build should not be possible
+        
+        public boolean builderComplete(){
+            
+            if(name == null){
+                return false;
+            }
+            else if(head == null){
+                return false;
+            }
+            else if(tail == null){
+                return false;
+            }
+            else if(limbs.isEmpty()){ // require minimum 1 limb
+                return false;
+            }
+            else{
+                return true;
+            }
+         
+        }
+        */
     }
 }

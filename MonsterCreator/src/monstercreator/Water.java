@@ -27,6 +27,6 @@ public class Water implements IElement {
     }
     
     public String toString(){
-        return"WATER";
+        return"WATER ";
     }
 }

@@ -27,6 +27,6 @@ public class Ice implements IElement{
     }
     
     public String toString(){
-        return "ICE";
+        return "ICE ";
     }
 }

@@ -21,8 +21,7 @@ public class Tail extends MonsterPart {
     
     @Override
     public String toString(){
-        String str = "Tail: [" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        String str = "Tail: [" + super.toString() + "]\n";
         return str;
     }
 }

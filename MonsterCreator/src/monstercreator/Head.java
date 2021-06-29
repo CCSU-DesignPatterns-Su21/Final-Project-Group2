@@ -22,8 +22,7 @@ public class Head extends MonsterPart {
     }
     
     public String toString(){
-        String str = "Head:[" + getElement()
-                + ", HP: " + getCurrentHP() + "/" + getMaxHP()+ "]\n";
+        String str = "Head:[" + super.toString() + "]\n";
         return str;
     }
 }
