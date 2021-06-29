@@ -6,7 +6,9 @@ import java.util.ArrayList;
  * The Product created by the
  * MonsterFactory. Composed of 
  * several MonsterParts, specifically 
- * one Head, one Tail, and two Limbs
+ * one Head, 
+ * at least one Limb, (represents a pair)
+ * and optionally a tail;
  * @author zachb
  */
 public class Monster implements IMonster, Visitable{
@@ -65,7 +67,9 @@ public class Monster implements IMonster, Visitable{
         for(Limb l : limbs){
             l.accept(v);
         }
-        tail.accept(v);
+        if(tail != null){
+            tail.accept(v);
+        }
     }
      @Override
     public String toString(){
@@ -80,7 +84,9 @@ public class Monster implements IMonster, Visitable{
      */
     private void setParent(){
         head.setParent(this);
-        tail.setParent(this);
+        if(tail != null){
+            tail.setParent(this);
+        }
         for(Limb l : limbs){
             l.setParent(this);
         }
@@ -88,67 +94,6 @@ public class Monster implements IMonster, Visitable{
     
     public class MonsterBuilder{
         
-        private String name;
-        private Head head;
-        private Tail tail;
-        private ArrayList<Limb> limbs = new ArrayList();
         
-        public void buildName(String n){
-            name = n;
-        }
-        
-        public void buildHead(IElement type){
-            head = new Head(type);
-        }
-        
-        public void buildTail(IElement type){
-            tail = new Tail(type);
-        }
-        
-        public void buildArms(IElement type){
-            limbs.add(new Arm(type));
-        }
-        
-        public void buildLegs(IElement type){
-            limbs.add(new Leg(type));
-        }
-        
-        public void buildWings(IElement type){
-            limbs.add(new Wing(type));
-        }
-        
-        public void buildFins(IElement type){
-            limbs.add(new Fin(type));
-        }
-        
-        public Monster buildMonster(){
-            return new Monster(name, head, limbs, tail);
-        }
-        
-       
-        /*
-            MonsterBuilder is only used by BuildManager,
-            so incomplete build should not be possible
-        
-        public boolean builderComplete(){
-            
-            if(name == null){
-                return false;
-            }
-            else if(head == null){
-                return false;
-            }
-            else if(tail == null){
-                return false;
-            }
-            else if(limbs.isEmpty()){ // require minimum 1 limb
-                return false;
-            }
-            else{
-                return true;
-            }
-         
-        }
-        */
     }
 }
