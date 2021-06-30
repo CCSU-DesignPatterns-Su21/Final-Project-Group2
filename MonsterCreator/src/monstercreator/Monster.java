@@ -20,6 +20,12 @@ public class Monster implements IMonster, Visitable{
     private Tail tail;
     private ArrayList<Limb> limbs = new ArrayList();
     
+    // default state of all parts is Good, Monster can't be constructed
+    // with broken parts
+    private PartState headState = new GoodState();
+    private PartState limbState = new GoodState();
+    private PartState tailState = new GoodState();
+    
     public int getMaxHP(){
         return maxHitPoints;
     }
@@ -29,7 +35,22 @@ public class Monster implements IMonster, Visitable{
     public String getName() {
         return name;
     }
-    
+
+    /**
+     * Method to access a Monster's parts
+     * @return a list of the Monster's MonsterParts
+     */
+    public ArrayList<MonsterPart> getParts(){
+        ArrayList<MonsterPart> partList = new ArrayList();
+        partList.add(head);
+        for(Limb l : limbs){
+            partList.add(l);
+        }
+        if(tail != null){
+            partList.add(tail);
+        }
+        return partList;
+    }
     /**
      * Constructor for Monster
      * @param n String - Monster's name
@@ -40,7 +61,7 @@ public class Monster implements IMonster, Visitable{
     public Monster(String n, Head h, ArrayList<Limb> limbList, Tail t ){
         name = n;
         currentHitPoints = maxHitPoints;
-        head = h;          
+        head = h;
         tail = t;
         for(Limb l : limbList){
             limbs.add(l);
@@ -75,6 +96,9 @@ public class Monster implements IMonster, Visitable{
     public String toString(){
         String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints + "\n";
+        if(headState.isBroken() || limbState.isBroken() || tailState.isBroken()){
+            str += " A Part is Broken\n";
+        }
         return str;
     }
 

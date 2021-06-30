@@ -41,5 +41,11 @@ public class GoodState implements PartState {
         part.setCurrentHP(newHP);
         part.getParent().takeDamage(damage);
     }
+    public boolean isBroken(){
+        return false;
+    }
+    public String toString(){
+        return ""; //don't specify State unless Broken
+    }
     
 }

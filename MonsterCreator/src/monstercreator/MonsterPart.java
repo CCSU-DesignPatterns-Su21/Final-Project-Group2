@@ -54,6 +54,9 @@ public abstract class MonsterPart implements Visitable {
     void changeState(PartState newState){
         curState = newState;
     }
+    public PartState getState(){
+        return curState;
+    }
     protected final void setParent(Monster monster){
         parent = monster;
     }
@@ -68,7 +71,7 @@ public abstract class MonsterPart implements Visitable {
     }
     
     public String toString(){
-        String str = "Element: " + element + "HP: " + currentHitPoints + "/" + maxHitPoints;
+        String str = "Element: " + element + "HP: " + currentHitPoints + "/" + maxHitPoints + curState.toString();
         return str;
     }
     

@@ -34,4 +34,10 @@ public class BrokenState implements PartState {
         
         part.getParent().takeDamage(damage);
     }
+    public boolean isBroken(){
+        return true;
+    }
+    public String toString(){
+        return " BROKEN"; 
+    }
 }

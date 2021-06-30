@@ -180,7 +180,7 @@ public class MonsterFactory implements Factory{
         
         Factory mf = MonsterFactory.getInstance();
         IMonster test = mf.create();
-
+        test.getParts().get(0).takeDamage(2000);
         Visitor v = new Visitor();
         test.accept(v);
         System.out.println(v.toString());
