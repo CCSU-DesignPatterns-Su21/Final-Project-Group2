@@ -92,8 +92,45 @@ public class Monster implements IMonster, Visitable{
         }
     }
     
-    public class MonsterBuilder{
-        
-        
+    public static class MonsterBuilder{
+        private Head builderHead;
+        private Tail builderTail;
+        private ArrayList<Limb> builderLimbs = new ArrayList();
+
+        public Monster build(String monsterName) {
+            return new Monster(monsterName, builderHead, builderLimbs, builderTail);
+        }
+
+        public void addHead(IElement element) {
+            builderHead = new Head(element);
+        }
+
+        public void addTail(IElement element) {
+            builderTail = new Tail(element);
+        }
+
+        public void addArms(int numArms, IElement element) {
+            for(int i = 0; i < numArms; i++) {
+                builderLimbs.add(new Arm(element));
+            }
+        }
+
+        public void addLegs(int numLegs, IElement element) {
+            for(int i = 0; i < numLegs; i++) {
+                builderLimbs.add(new Leg(element));
+            }
+        }
+
+        public void addWings(int numWings, IElement element) {
+            for(int i = 0; i < numWings; i++) {
+                builderLimbs.add(new Wing(element));
+            }
+        }
+
+        public void addFins(int numFins, IElement element) {
+            for(int i = 0; i < numFins; i++) {
+                builderLimbs.add(new Fin(element));
+            }
+        }
     }
 }
