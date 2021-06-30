@@ -122,7 +122,8 @@ public class MonsterFactory implements Factory{
                     + "5: Fire Dragon\n"
                     + "6: Storm Drake\n"
                     + "7: Ice Kraken\n"
-                    + "8: Cthulhu (Warning: BOSS)\n");
+                    + "8: Ultimate Octopus\n"
+                    + "9: Cthulhu (Warning: BOSS)\n");
             int selectionP = keyboard.nextInt();
 
             int selectionPE;
@@ -162,6 +163,10 @@ public class MonsterFactory implements Factory{
                     BuildDirector.buildIceKraken(builder);
                     break;
                 case 8:
+                    name = "Master of Four Elements: " + name;
+                    BuildDirector.buildUltimateOctopus(builder);
+                    break;
+                case 9:
                     BuildDirector.buildCthulhu(builder);
                     break;
                 default:

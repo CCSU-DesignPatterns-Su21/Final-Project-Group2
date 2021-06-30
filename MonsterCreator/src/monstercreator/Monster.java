@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * MonsterFactory. Composed of 
  * several MonsterParts, specifically 
  * one Head, 
- * at least one Limb, (represents a pair)
+ * at least one Limb,
  * and optionally a tail;
  * @author zachb
  */

@@ -56,6 +56,14 @@ public class BuildDirector {
         builder.addLegs(8, Ice.getInstance());
         builder.addFins(8, Ice.getInstance());
     }
+    
+    public static void buildUltimateOctopus(Monster.MonsterBuilder builder){
+        builder.addHead(Water.getInstance());
+        builder.addLegs(2, Fire.getInstance());
+        builder.addLegs(2, Water.getInstance());
+        builder.addLegs(2, Electric.getInstance());
+        builder.addLegs(2, Ice.getInstance());
+    }
 
     public static void buildCthulhu(Monster.MonsterBuilder builder){
         builder.addHead(Void.getInstance());
