@@ -19,6 +19,7 @@ public abstract class MonsterPart implements Visitable {
     private IElement element;
     private IElement weakness;
     private PartState curState = new GoodState();
+    private Subject subj;
     
     public final int getMaxHP(){
         return maxHitPoints;
@@ -40,6 +41,7 @@ public abstract class MonsterPart implements Visitable {
     }
     public void takeDamage(int damage){
         // Observer pattern - notify parent Monster of damage taken
+        subj.notif();
         curState.takeDamage(this, damage);
     }
     final void setElement(IElement type){
