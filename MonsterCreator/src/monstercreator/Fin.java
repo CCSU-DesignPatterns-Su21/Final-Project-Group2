@@ -6,11 +6,15 @@ package monstercreator;
  * @author zachb
  */
 public class Fin extends Limb{
-    public Fin(Element type){
-        setCurrentHP(getMaxHP());
-        setElement(type);
+    public Fin(IElement type){
+        super(type);
     }
     
+    /**
+     * For participation in Visitor pattern
+     * @param v accepted Visitor
+     */
+    @Override
     public void accept(Visitor v){
         v.visitFin(this);
     }

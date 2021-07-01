@@ -1,39 +1,84 @@
 package monstercreator;
 
+//import javax.security.auth.Subject;
+
 /**
  * Abstract class that contains all
  * common attributes and behaviors
- * of the concrete MonsterParts
+ * of the concrete MonsterParts.
+ * A MonsterPart is broken when its 
+ * currentHitPoints reach 0.
+ * A MonsterPart does not need to be broken 
+ * for the Monster to be defeated.
  * @author zachb
  */
 public abstract class MonsterPart implements Visitable {
     
     private final int maxHitPoints = 2000;
     private int currentHitPoints;
+    private int attackStr;
     private Monster parent;
-    private Element element;
-    
+    private IElement element;
+    private IElement weakness;
+    private PartState curState = new GoodState();
+    private Subject subj = new Subject();
     
     public final int getMaxHP(){
         return maxHitPoints;
     }
-    public final void setCurrentHP(int value){
+    final void setCurrentHP(int value){
         currentHitPoints = value;
     }
     public final int getCurrentHP(){
         return currentHitPoints;
     }
-    public final void setElement(Element type){
+    void setAttackStr(int value){
+        attackStr = value;
+    }
+    public int getAttackStr(){
+        return attackStr;
+    }
+    public void attack(MonsterPart target){
+        curState.attack(this, target);
+    }
+    public void takeDamage(int damage){
+        // Observer pattern - notify parent Monster of damage taken
+        
+        curState.takeDamage(this, damage);
+    }
+    final void setElement(IElement type){
         element = type;
     }
-    public final Element getElement(){
+    public final IElement getElement(){
         return element;
     }
-    public final void setParent(Monster monster){
+    public IElement getWeakness(){
+        return weakness;
+    }
+    void changeState(PartState newState){
+        curState = newState;
+        subj.notif(this, curState);
+    }
+    public PartState getState(){
+        return curState;
+    }
+    protected final void setParent(Monster monster){
         parent = monster;
+        subj.attach(parent.getObserver());
     }
     public final Monster getParent(){
         return parent;
+    }
+    
+    public MonsterPart(IElement type){
+        setCurrentHP(getMaxHP());
+        element = type;
+        weakness = type.getWeakness();
+    }
+    
+    public String toString(){
+        String str = "Element: " + element + "HP: " + currentHitPoints + "/" + maxHitPoints + curState.toString();
+        return str;
     }
     
 }
