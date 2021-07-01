@@ -22,11 +22,29 @@ public class Monster implements IMonster, Visitable{
     
     // default state of all parts is Good, Monster can't be constructed
     // with broken parts
-    private PartState headState = new GoodState();
-    private PartState limbState = new GoodState();
-    private PartState tailState = new GoodState();
-    
-    public int getMaxHP(){
+    private ArrayList<PartState> States = new ArrayList();
+
+    private Observer obs = new Observer(){
+
+        @Override
+        public void setSubject(Subject sub) {
+        }
+
+        @Override
+        public void update(MonsterPart part, PartState state) {
+            int i = 0;
+            ArrayList<MonsterPart> parts= getParts();
+            for (MonsterPart p : parts) {
+                if (p.equals(part)) {
+                    States.set(i, new BrokenState());
+                }
+                i++;
+            }
+        }
+        
+    };
+
+    public int getMaxHP() {
         return maxHitPoints;
     }
     public int getCurrentHP() {
@@ -34,6 +52,10 @@ public class Monster implements IMonster, Visitable{
     }
     public String getName() {
         return name;
+    }
+
+    public Observer getObserver() {
+        return obs;
     }
 
     /**
@@ -68,6 +90,10 @@ public class Monster implements IMonster, Visitable{
         }
         // create bidirectional relationship
         setParent();
+
+        for (MonsterPart p : getParts()) {
+            States.add(new GoodState());
+        }
     }
     
     public void takeDamage(int damage){
@@ -96,9 +122,13 @@ public class Monster implements IMonster, Visitable{
     public String toString(){
         String str = "Monster: " + name 
                 + "\nHP: " + currentHitPoints + "/" + maxHitPoints + "\n";
-        if(headState.isBroken() || limbState.isBroken() || tailState.isBroken()){
-            str += " A Part is Broken\n";
+        
+        for (PartState p : States) {
+            if (p.isBroken()) {
+                str += " A Part is Broken\n";
+            }
         }
+        
         return str;
     }
 
@@ -157,4 +187,5 @@ public class Monster implements IMonster, Visitable{
             }
         }
     }
+
 }

@@ -1,5 +1,7 @@
 package monstercreator;
 
+//import javax.security.auth.Subject;
+
 /**
  * Abstract class that contains all
  * common attributes and behaviors
@@ -19,7 +21,7 @@ public abstract class MonsterPart implements Visitable {
     private IElement element;
     private IElement weakness;
     private PartState curState = new GoodState();
-    private Subject subj;
+    private Subject subj = new Subject();
     
     public final int getMaxHP(){
         return maxHitPoints;
@@ -41,7 +43,7 @@ public abstract class MonsterPart implements Visitable {
     }
     public void takeDamage(int damage){
         // Observer pattern - notify parent Monster of damage taken
-        subj.notif();
+        
         curState.takeDamage(this, damage);
     }
     final void setElement(IElement type){
@@ -55,12 +57,14 @@ public abstract class MonsterPart implements Visitable {
     }
     void changeState(PartState newState){
         curState = newState;
+        subj.notif(this, curState);
     }
     public PartState getState(){
         return curState;
     }
     protected final void setParent(Monster monster){
         parent = monster;
+        subj.attach(parent.getObserver());
     }
     public final Monster getParent(){
         return parent;

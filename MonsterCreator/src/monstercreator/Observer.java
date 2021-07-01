@@ -10,6 +10,6 @@ package monstercreator;
  * @author zachb
  */
 public interface Observer {
-    
-    public void update(Subject subject);
+    public void setSubject(Subject sub);
+    public void update(MonsterPart part, PartState state);
 }
